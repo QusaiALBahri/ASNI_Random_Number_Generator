@@ -1,0 +1,19 @@
+# ANSI-based Random Number Generator GUI
+
+## Description
+
+### English
+This repository contains a fully ANSI-based random number generator GUI implemented in Python. The program uses basic ANSI escape codes to create a text-based user interface that allows users to generate random numbers between 1 and 100. The interface is simple and interactive, providing clear instructions and feedback. 
+
+### Arabic
+يحتوي هذا المستودع على واجهة مستخدم رسومية لتوليد الأرقام العشوائية تعتمد بالكامل على ANSI ومُنفذة بلغة بايثون. يستخدم البرنامج أكواد الهروب الأساسية من ANSI لإنشاء واجهة مستخدم نصية تتيح للمستخدمين توليد أرقام عشوائية بين 1 و 100. الواجهة بسيطة وتفاعلية، وتوفر تعليمات واضحة وتغذية راجعة.
+
+### Hindi
+यह रिपॉजिटरी एक पूरी तरह से ANSI-आधारित रैंडम नंबर जेनरेटर GUI को पाइथन में लागू करता है। कार्यक्रम एक टेक्स्ट-आधारित यूज़र इंटरफ़ेस बनाने के लिए बुनियादी ANSI एस्केप कोड्स का उपयोग करता है जो उपयोगकर्ताओं को 1 और 100 के बीच रैंडम नंबर उत्पन्न करने की अनुमति देता है। इंटरफ़ेस सरल और इंटरैक्टिव है, स्पष्ट निर्देश और फीडबैक प्रदान करता है।
+
+## How to Run
+
+1. Ensure you have Python installed on your system.
+2. Clone this repository.
+   ```bash
+   git clone https://github.com/yourusername/ansi-random-number-generator.git
