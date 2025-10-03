@@ -1,19 +1,24 @@
-# ANSI-based Random Number Generator GUI
+# ANSI-based AI Calculator (TUI)
 
 ## Description
 
 ### English
-This repository contains a fully ANSI-based random number generator GUI implemented in Python. The program uses basic ANSI escape codes to create a text-based user interface that allows users to generate random numbers between 1 and 100. The interface is simple and interactive, providing clear instructions and feedback. 
+This repository now contains an ANSI-powered AI calculator implemented in Python. The terminal user interface (built with the `npyscreen` library) generates and solves 100 arithmetic problems at the press of a button. The solved expressions, along with quick statistics, are presented inside the terminal so you can explore the automatically generated batch.
 
 ### Arabic
-يحتوي هذا المستودع على واجهة مستخدم رسومية لتوليد الأرقام العشوائية تعتمد بالكامل على ANSI ومُنفذة بلغة بايثون. يستخدم البرنامج أكواد الهروب الأساسية من ANSI لإنشاء واجهة مستخدم نصية تتيح للمستخدمين توليد أرقام عشوائية بين 1 و 100. الواجهة بسيطة وتفاعلية، وتوفر تعليمات واضحة وتغذية راجعة.
+يحتوي هذا المستودع الآن على حاسبة تعتمد على الذكاء الاصطناعي ومبنية باستخدام ANSI في الطرفية. تُولِّد الواجهة النصية (باستخدام مكتبة `npyscreen`) مائة مسألة حسابية وتحلها تلقائياً بضغطة زر، ثم تعرض الحلول والإحصاءات داخل الطرفية لاستكشاف المجموعة الناتجة.
 
 ### Hindi
-यह रिपॉजिटरी एक पूरी तरह से ANSI-आधारित रैंडम नंबर जेनरेटर GUI को पाइथन में लागू करता है। कार्यक्रम एक टेक्स्ट-आधारित यूज़र इंटरफ़ेस बनाने के लिए बुनियादी ANSI एस्केप कोड्स का उपयोग करता है जो उपयोगकर्ताओं को 1 और 100 के बीच रैंडम नंबर उत्पन्न करने की अनुमति देता है। इंटरफ़ेस सरल और इंटरैक्टिव है, स्पष्ट निर्देश और फीडबैक प्रदान करता है।
+यह रिपॉजिटरी अब एक ANSI आधारित एआई कैलकुलेटर प्रदान करती है। `npyscreen` लाइब्रेरी से बना यह टर्मिनल यूज़र इंटरफ़ेस एक ही बटन दबाने पर 100 गणितीय समस्याएँ तैयार करता है और उन्हें हल कर देता है। समाधान और त्वरित सांख्यिकीय जानकारी उसी टर्मिनल में दिखाई जाती हैं ताकि आप स्वतः उत्पन्न परिणामों को आसानी से देख सकें।
 
 ## How to Run
 
 1. Ensure you have Python installed on your system.
-2. Clone this repository.
+2. Install the dependencies (the project uses [Poetry](https://python-poetry.org/) for dependency management).
    ```bash
-   git clone https://github.com/yourusername/ansi-random-number-generator.git
+   poetry install
+   ```
+3. Run the application.
+   ```bash
+   poetry run python main.py
+   ```
