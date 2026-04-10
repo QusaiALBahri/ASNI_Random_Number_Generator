@@ -1,0 +1,136 @@
+# ANSI-based AI Calculator (TUI)
+
+## Description
+
+### English
+This repository contains an ANSI-powered AI calculator implemented in Python. The terminal user interface (built with the `npyscreen` library) generates and solves arithmetic problems at the press of a button. The solved expressions, along with quick statistics, are presented inside the terminal so you can explore the automatically generated batch.
+
+**Features:**
+- Configurable problem count (default: 100)
+- Input validation to prevent division by zero
+- Export functionality to save results to JSON or CSV files
+- Difficulty levels (Easy, Medium, Hard)
+- Operation filtering options
+- Multi-language support (English, Arabic, Hindi)
+- Keyboard shortcuts for common actions (Ctrl+G: Generate, Ctrl+C: Clear, Ctrl+E: Export, Ctrl+X: Exit)
+- Progress indicators during generation
+- Clear/reset functionality
+- Comprehensive type hints and error handling
+- Logging support
+
+### Arabic
+يحتوي هذا المستودع على حاسبة تعتمد على الذكاء الاصطناعي ومبنية باستخدام ANSI في الطرفية. تُولِّد الواجهة النصية (باستخدام مكتبة `npyscreen`) مسائل حسابية وتحلها تلقائياً بضغطة زر، ثم تعرض الحلول والإحصاءات داخل الطرفية لاستكشاف المجموعة الناتجة.
+
+**المميزات:**
+- عدد مسائل قابل للتكوين (الافتراضي: 100)
+- التحقق من المدخلات لمنع القسمة على صفر
+- وظيفة التصدير لحفظ النتائج في ملفات JSON أو CSV
+- مستويات الصعوبة (سهل، متوسط، صعب)
+- خيارات تصفية العمليات
+- دعم متعدد اللغات (الإنجليزية، العربية، الهندية)
+- اختصارات لوحة المفاتيح للإجراءات الشائعة
+- مؤشرات التقدم أثناء التوليد
+- وظيفة المسح/إعادة التعيين
+- تلميحات شاملة للنوع ومعالجة الأخطاء
+- دعم التسجيل
+
+### Hindi
+यह रिपॉजिटरी एक ANSI आधारित एआई कैलकुलेटर प्रदान करती है। `npyscreen` लाइब्रेरी से बना यह टर्मिनल यूज़र इंटरफ़ेस गणितीय समस्याएँ तैयार करता है और उन्हें हल कर देता है। समाधान और त्वरित सांख्यिकीय जानकारी उसी टर्मिनल में दिखाई जाती हैं ताकि आप स्वतः उत्पन्न परिणामों को आसानी से देख सकें।
+
+**विशेषताएँ:**
+- विन्यास योग्य समस्या संख्या (डिफ़ॉल्ट: 100)
+- शून्य से विभाजन को रोकने के लिए इनपुट सत्यापन
+- JSON या CSV फ़ाइलों में परिणाम सहेजने के लिए निर्यात कार्य
+- कठिनाई स्तर (आसान, मध्यम, कठिन)
+- ऑपरेशन फ़िल्टरिंग विकल्प
+- बहु-भाषा समर्थन (अंग्रेज़ी, अरबी, हिंदी)
+- सामान्य कार्यों के लिए कीबोर्ड शॉर्टकट
+- जनरेशन के दौरान प्रगति संकेतक
+- स्पष्ट/रीसेट कार्यक्षमता
+- व्यापक प्रकार संकेत और त्रुटि हैंडलिंग
+- लॉगिंग समर्थन
+
+## How to Run
+
+1. Ensure you have Python installed on your system (Python 3.10 or newer).
+2. Install the dependencies (the project uses [Poetry](https://python-poetry.org/) for dependency management).
+   ```bash
+   poetry install
+   ```
+3. Run the application.
+   ```bash
+   poetry run python main.py
+   ```
+
+## Usage
+
+### Basic Usage
+- Press the "Generate and Solve" button or use **Ctrl+G** to generate and solve problems
+- Enter a custom problem count in the "Problem Count" field before generating
+- Use **Ctrl+C** to clear results
+- Use **Ctrl+E** to export results to a JSON file
+- Use **Ctrl+X** to exit the application
+
+### Keyboard Shortcuts
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+G   | Generate and solve problems |
+| Ctrl+C   | Clear current results |
+| Ctrl+E   | Export results to JSON |
+| Ctrl+X   | Exit application |
+
+### Features in Detail
+
+#### Configurable Problem Count
+You can specify any positive number of problems to generate. Simply enter the desired count in the "Problem Count" field before clicking Generate.
+
+#### Difficulty Levels
+The application supports three difficulty levels that affect the range of operands:
+- **Easy**: Smaller numbers (1-20 for addition/subtraction, 1-10 for multiplication, 2-6 for division)
+- **Medium**: Moderate numbers (10-100 for addition/subtraction, 2-20 for multiplication, 2-12 for division)
+- **Hard**: Larger numbers (50-500 for addition/subtraction, 10-50 for multiplication, 5-20 for division)
+
+#### Export Functionality
+Results can be exported to JSON format with a timestamp. The export includes:
+- All generated problems with expressions and solutions
+- Summary statistics (average, min, max results)
+- Operator distribution
+- Generation timestamp
+
+#### Input Validation
+The application validates inputs to prevent errors:
+- Negative or zero problem counts are rejected
+- Division by zero is prevented through careful operand generation
+- Invalid inputs display helpful error messages
+
+## Project Structure
+
+```
+/workspace/
+├── main.py              # Main application code
+├── pyproject.toml       # Poetry configuration and dependencies
+├── README.md            # This file
+└── poetry.lock          # Locked dependency versions
+```
+
+## Configuration
+
+Edit `pyproject.toml` to customize:
+- Python version requirements
+- Dependencies
+- Code quality tools (Pyright, Ruff)
+
+## Error Handling
+
+The application includes comprehensive error handling:
+- Logging for debugging and monitoring
+- User-friendly error messages in the status line
+- Graceful degradation when operations fail
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+## License
+
+This project is open source and available under the MIT License.
