@@ -1,22 +1,29 @@
-# ANSI-based AI Calculator (TUI)
+# ANSI-based AI Calculator (TUI & Web App)
 
 ## Description
 
 ### English
-This repository contains an ANSI-powered AI calculator implemented in Python. The terminal user interface (built with the `npyscreen` library) generates and solves arithmetic problems at the press of a button. The solved expressions, along with quick statistics, are presented inside the terminal so you can explore the automatically generated batch.
+This repository contains an ANSI-powered AI calculator implemented in Python with **dual interfaces**:
+1. **Terminal User Interface (TUI)** - Built with the `npyscreen` library for terminal-based operation
+2. **Modern Web Application** - Built with Flask for browser-based access with a beautiful responsive UI
+
+Both interfaces generate and solve arithmetic problems at the press of a button, with full multi-language support and export capabilities.
 
 **Features:**
-- Configurable problem count (default: 100)
+- **Dual GUI Support**: Terminal (TUI) and Modern Web Interface
+- Configurable problem count (default: 100, max: 1000)
 - Input validation to prevent division by zero
 - Export functionality to save results to JSON or CSV files
 - Difficulty levels (Easy, Medium, Hard)
-- Operation filtering options
-- Multi-language support (English, Arabic, Hindi)
-- Keyboard shortcuts for common actions (Ctrl+G: Generate, Ctrl+C: Clear, Ctrl+E: Export, Ctrl+X: Exit)
+- Operation filtering options (Addition, Subtraction, Multiplication, Division)
+- **Multi-language support** (English, Arabic, Hindi, French, Spanish)
+- Keyboard shortcuts for common actions
 - Progress indicators during generation
 - Clear/reset functionality
 - Comprehensive type hints and error handling
 - Logging support
+- Responsive design for mobile and desktop (Web App)
+- Real-time statistics display
 
 ### Arabic
 يحتوي هذا المستودع على حاسبة تعتمد على الذكاء الاصطناعي ومبنية باستخدام ANSI في الطرفية. تُولِّد الواجهة النصية (باستخدام مكتبة `npyscreen`) مسائل حسابية وتحلها تلقائياً بضغطة زر، ثم تعرض الحلول والإحصاءات داخل الطرفية لاستكشاف المجموعة الناتجة.
@@ -52,32 +59,91 @@ This repository contains an ANSI-powered AI calculator implemented in Python. Th
 
 ## How to Run
 
+### Terminal Interface (TUI)
+
 1. Ensure you have Python installed on your system (Python 3.10 or newer).
 2. Install the dependencies (the project uses [Poetry](https://python-poetry.org/) for dependency management).
    ```bash
    poetry install
    ```
-3. Run the application.
+   Or using pip:
+   ```bash
+   pip install npyscreen
+   ```
+3. Run the terminal application.
    ```bash
    poetry run python main.py
+   ```
+   Or:
+   ```bash
+   python main.py
+   ```
+
+### Web Application
+
+1. Install Flask dependency:
+   ```bash
+   pip install flask
+   ```
+   Or with Poetry:
+   ```bash
+   poetry install
+   ```
+
+2. Navigate to the webapp directory and run:
+   ```bash
+   cd webapp
+   python app.py
+   ```
+
+3. Open your browser and go to:
+   ```
+   http://localhost:5000
    ```
 
 ## Usage
 
-### Basic Usage
+### Terminal Interface (TUI)
+
+#### Basic Usage
 - Press the "Generate and Solve" button or use **Ctrl+G** to generate and solve problems
 - Enter a custom problem count in the "Problem Count" field before generating
 - Use **Ctrl+C** to clear results
 - Use **Ctrl+E** to export results to a JSON file
 - Use **Ctrl+X** to exit the application
 
-### Keyboard Shortcuts
+#### Keyboard Shortcuts (TUI)
 | Shortcut | Action |
 |----------|--------|
 | Ctrl+G   | Generate and solve problems |
 | Ctrl+C   | Clear current results |
 | Ctrl+E   | Export results to JSON |
 | Ctrl+X   | Exit application |
+
+### Web Application
+
+#### Basic Usage
+1. Select your preferred language from the dropdown (supports English, Arabic, Hindi, French, Spanish)
+2. Choose difficulty level (Easy, Medium, Hard)
+3. Set the number of problems to generate (1-1000)
+4. Select which operations to include (Addition, Subtraction, Multiplication, Division)
+5. Click "Generate & Solve" or press **Ctrl+G**
+6. View results and statistics in real-time
+7. Export results as JSON or CSV using the export buttons
+
+#### Keyboard Shortcuts (Web)
+| Shortcut | Action |
+|----------|--------|
+| Ctrl+G / Cmd+G | Generate and solve problems |
+| Ctrl+C / Cmd+C | Clear current results |
+| Ctrl+E / Cmd+E | Export results to JSON |
+
+#### Features
+- **Language Switching**: Change UI language instantly without page reload
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Real-time Statistics**: View average, min, max results and operator distribution
+- **Export Options**: Download results as JSON (with full metadata) or CSV (for spreadsheet import)
+- **Visual Feedback**: Loading indicators and status messages
 
 ### Features in Detail
 
@@ -107,7 +173,16 @@ The application validates inputs to prevent errors:
 
 ```
 /workspace/
-├── main.py              # Main application code
+├── main.py              # Terminal UI application (TUI)
+├── webapp/
+│   ├── app.py           # Flask web application
+│   ├── templates/
+│   │   └── index.html   # Main HTML template
+│   └── static/
+│       ├── css/
+│       │   └── style.css    # Modern responsive styles
+│       └── js/
+│           └── app.js       # Client-side JavaScript
 ├── pyproject.toml       # Poetry configuration and dependencies
 ├── README.md            # This file
 └── poetry.lock          # Locked dependency versions
