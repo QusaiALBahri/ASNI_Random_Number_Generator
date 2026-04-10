@@ -519,6 +519,29 @@ def api_get_translations(lang_code):
         return jsonify({"error": "Invalid language code"}), 400
 
 
+@app.route('/api/stats', methods=['GET'])
+def api_stats():
+    """API endpoint to get statistics about generated problems."""
+    if not current_session["problems"] or not current_session["summary"]:
+        return jsonify({
+            "error": "No problems generated yet",
+            "average": 0,
+            "min": 0,
+            "max": 0,
+            "total": 0
+        }), 404
+    
+    summary = current_session["summary"]
+    return jsonify({
+        "success": True,
+        "average": summary.average_result(),
+        "min": summary.min_result(),
+        "max": summary.max_result(),
+        "total": len(current_session["problems"]),
+        "distribution": summary.counts_by_operator()
+    })
+
+
 if __name__ == '__main__':
     # Create templates directory if it doesn't exist
     os.makedirs('templates', exist_ok=True)
