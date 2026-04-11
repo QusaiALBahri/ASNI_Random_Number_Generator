@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ translations.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="app-title">{{ translations.title }}</h1>
+            <p id="app-subtitle">{{ translations.subtitle }}</p>
+            
+            <div class="settings-bar">
+                <div class="setting-group">
+                    <label for="language-select">{{ translations.language }}:</label>
+                    <select id="language-select">
+                        {% for lang in languages %}
+                        <option value="{{ lang.value }}">{{ lang.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="difficulty-select">{{ translations.difficulty }}:</label>
+                    <select id="difficulty-select">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="count-input">{{ translations.problem_count }}:</label>
+                    <input type="number" id="count-input" value="100" min="1" max="1000">
+                </div>
+            </div>
+            
+            <div class="operations-group">
+                <span>{{ translations.operations }}:</span>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="operation-checkbox" value="+" checked>
+                    {{ translations.addition }}
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="operation-checkbox" value="-" checked>
+                    {{ translations.subtraction }}
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="operation-checkbox" value="×" checked>
+                    {{ translations.multiplication }}
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" class="operation-checkbox" value="÷" checked>
+                    {{ translations.division }}
+                </label>
+            </div>
+        </header>
+
+        <main>
+            <div class="action-buttons">
+                <button id="generate-btn" class="btn btn-primary">
+                    {{ translations.generate_btn }}
+                </button>
+                <button id="clear-btn" class="btn btn-secondary">
+                    {{ translations.clear_btn }}
+                </button>
+                <button id="export-json-btn" class="btn btn-success">
+                    {{ translations.export_json }}
+                </button>
+                <button id="export-csv-btn" class="btn btn-success">
+                    {{ translations.export_csv }}
+                </button>
+            </div>
+
+            <div id="status-message" class="status-message"></div>
+
+            <div class="results-container">
+                <div class="panel">
+                    <h2>{{ translations.results }}</h2>
+                    <div id="problems-list" class="problems-list">
+                        <p class="placeholder">{{ translations.no_problems }}</p>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2>{{ translations.statistics }}</h2>
+                    <div id="statistics" class="statistics">
+                        <div class="stat-item">
+                            <span class="stat-label">{{ translations.total_problems }}:</span>
+                            <span id="stat-total" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">{{ translations.average_result }}:</span>
+                            <span id="stat-average" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">{{ translations.min_result }}:</span>
+                            <span id="stat-min" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">{{ translations.max_result }}:</span>
+                            <span id="stat-max" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">{{ translations.distribution }}:</span>
+                            <div id="stat-distribution" class="stat-value distribution"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>AI Calculator - Multi-GUI Web Application</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
